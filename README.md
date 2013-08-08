@@ -14,3 +14,11 @@ Run listed commands inside the directory
     * make
     * sudo make install
     * php -d extension=range2cidr.so -r 'var_dump(range2cidr("123.123.123.123", "123.123.123.125"));'
+
+Manual
+------
+
+    array range2cidr(string from, string to)
+    array range2cidr(long from, long to)
+
+Convert IP range to CIDR, return an array containing the CIDRs.
