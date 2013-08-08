@@ -103,6 +103,11 @@ PHP_FUNCTION(range2cidr) {
     } else {
         l_from = Z_LVAL_P(from);
         l_to = Z_LVAL_P(to);
+        if (l_from > 0xffffffff || l_to > 0xffffffff
+            || l_from < 0 || l_to < 0 || l_from > l_to)
+        {
+            RETURN_FALSE;
+        }
     }
 
     MAKE_STD_ZVAL(ret_arr);
